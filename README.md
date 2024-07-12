@@ -1,8 +1,55 @@
 # sample-microservice
 
+## Resource
+
+This project is an application that runs as a destination to connect to with a REST Client.
+
+This project has two functions
+One is an echo server.
+The other is a response with delay.
+
+# Echo server
+The echo server includes a message in the request and returns a response containing that message.
+This resource is provided at the URL `/echo`.
+
+To make the message `Hello`, the URL would be `/echo/Hello`.
+This will return the following message.
+```json
+{
+   "message" : "Hello"
+}
+```
+
+# Response with delay
+
+A response with a delay is one that includes the time you want to delay in the request, and will respond after that time has elapsed.
+This resource is provided at the URL `/latency`.
+
+This resource can be specified in seconds and milliseconds.
+Seconds is `/latency/s` and milliseconds is `/latency/ms`.
+
+Specify the time after this URL.
+For a stop of 500 milliseconds, the URL would be `/latency/ms/500`.
+
+The response will always be the following message.
+```json
+{
+   "message" : "Hello"
+}
+```
+
+
+# For developing
+
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+
+Since this application is intended to work with other applications, please specify the following as runtime arguments to avoid port number conflicts.
+
+```
+-Dquarkus.http.port=8082
+```
 
 ## Running the application in dev mode
 
