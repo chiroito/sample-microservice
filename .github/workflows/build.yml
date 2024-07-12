@@ -57,7 +57,7 @@ jobs:
 
     # Build app and container
     - name: Build with Maven
-      run: mvn -B package --file pom.xml -Dquarkus.container-image.build=true -Dquarkus.container-image.builder=docker 
+      run: mvn -B package --file pom.xml
     
     # Login against a Docker registry except on PR
     # https://github.com/docker/login-action
