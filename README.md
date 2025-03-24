@@ -82,6 +82,19 @@ If you want to build an _über-jar_, execute the following command:
 
 The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
 
+
+## Run with Ahead-of-Time Class Loading & Linking
+
+Before running the application, first create a cache for the AOT.
+```
+java -XX:AOTMode=record -XX:AOTConfiguration=app.conf -jar target\sample-microservice-1.0-SNAPSHOT-runner.jar
+java -XX:AOTMode=create -XX:AOTConfiguration=app.conf -XX:AOTCache=app.aot -jar target\sample-microservice-1.0-SNAPSHOT-runner.jar
+```
+Finally, the application is run using the AOT cache.
+```
+java  -XX:AOTCache=app.aot -jar target\sample-microservice-1.0-SNAPSHOT-runner.jar
+```
+
 ## Creating a native executable
 
 You can create a native executable using:
